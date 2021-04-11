@@ -3,6 +3,8 @@ import FormikTextInput from './FormikTextInput';
 import { View, Pressable, Text, StyleSheet } from 'react-native';
 import { Formik } from 'formik';
 import * as yup from 'yup';
+import useSignIn from '../hooks/useSignIn';
+import { useHistory } from 'react-router-native';
 
 const styles = StyleSheet.create({
     container: {
@@ -47,11 +49,21 @@ const SignInForm = ({ onSubmit }) => {
     );
 };
 
-const onSubmit = (values) => {
-    console.log(values);
-};
-
 const SignIn = () => {
+  const [signIn] = useSignIn();
+  let history = useHistory();
+
+  const onSubmit = async (values) => {
+    const { username, password } = values;
+
+    try {
+      await signIn({ username, password });
+      history.push('/');
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
   return (
     <Formik 
         initialValues={initialValues}
