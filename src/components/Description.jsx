@@ -31,10 +31,10 @@ const Description = ({ item }) => (
       <Image style={styles.avatar} 
           source={{ uri: item.ownerAvatarUrl, width: 50, height: 50 }} />
       <View style={styles.column}>
-          <Text fontWeight="bold">{item.fullName}</Text>
-          <Text>{item.description}</Text>
+          <Text fontWeight="bold" testID='fullname'>{item.fullName}</Text>
+          <Text testID='description'>{item.description}</Text>
           <View style={styles.language}>
-            <Text color="textTertiary">{item.language}</Text>
+            <Text color="textTertiary" testID='language'>{item.language}</Text>
           </View>
       </View>
   </View>

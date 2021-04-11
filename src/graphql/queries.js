@@ -28,3 +28,20 @@ export const GET_AUTHORIZED_USER = gql`
         }
     }
 `;
+
+export const GET_SINGLE_REPO = gql`
+    query repository($id: ID!) {
+        repository(id: $id) {
+            id
+            fullName
+            description
+            language
+            forksCount
+            stargazersCount
+            ratingAverage
+            reviewCount
+            ownerAvatarUrl
+            url
+        }
+    }
+`;

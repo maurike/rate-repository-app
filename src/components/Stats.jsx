@@ -12,10 +12,10 @@ const styles = StyleSheet.create({
 
 const Stats = ({ item }) => (
     <View style={styles.stats}>
-        <StatsItem number={item.stargazersCount} />
-        <StatsItem number={item.forksCount} />
-        <StatsItem number={item.reviewCount} />
-        <StatsItem number={item.ratingAverage} />
+        <StatsItem number={item.stargazersCount} testID='stargazers' />
+        <StatsItem number={item.forksCount} testID='forks' />
+        <StatsItem number={item.reviewCount} testID='reviews' />
+        <StatsItem number={item.ratingAverage} testID='rating' />
     </View>
 );
 

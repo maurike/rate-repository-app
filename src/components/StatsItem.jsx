@@ -17,9 +17,9 @@ const handleNumber = (number) => {
     return number;
 };
 
-const Stats = ({ number }) => (
+const Stats = ({ number, testID }) => (
     <View style={styles.statsColumn}>
-        <Text fontWeight="bold">{handleNumber(number)}</Text>
+        <Text fontWeight="bold" testID={testID}>{handleNumber(number)}</Text>
         <Text>Stars</Text>
     </View>
 );

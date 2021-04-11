@@ -1,7 +1,8 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, Pressable } from 'react-native';
 import Stats from './Stats';
 import Description from './Description';
+import { useHistory } from 'react-router-native';
 
 const styles = StyleSheet.create({
     container: {
@@ -14,11 +15,21 @@ const styles = StyleSheet.create({
     }
 });
 
-const RepositoryItem = ({ item }) => (
-    <View style={styles.container}>
-        <Description item={item} />
-        <Stats item={item} />
-    </View>
-);
+const RepositoryItem = ({ item }) => {
+    let history = useHistory();
+
+    const path = () => {
+        history.push(`/repository/${item.id}`);
+    };
+
+    return (
+        <Pressable onPress={path}>
+            <View style={styles.container}>
+                <Description item={item} />
+                <Stats item={item} />
+            </View>
+        </Pressable>
+    );
+};
 
 export default RepositoryItem;
